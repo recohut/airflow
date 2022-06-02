@@ -57,3 +57,9 @@ docker:
 	airflow webserver & \
 	airflow scheduler \
 	'
+
+aws-cf:
+	aws cloudformation create-stack --stack-name mwaa-environment-public-network --template-body mwaa_public_network.yml --capabilities CAPABILITY_IAM
+
+aws-s3:
+	aws s3 cp dags/tutorial.py s3://mwaa-environment-public-network-environmentbucket-gjuz5vdx2wwo/dags/
